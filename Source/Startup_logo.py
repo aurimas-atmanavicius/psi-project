@@ -24,5 +24,3 @@ while running:
     screen.blit(image, ((screen_width - image.get_width()) // 2, (screen_height - image.get_height()) // 2))
     pygame.display.flip()
 
-pygame.quit()
-exit()
