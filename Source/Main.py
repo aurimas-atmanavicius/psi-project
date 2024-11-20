@@ -1,2 +1,2 @@
 
-import Startup_logo
+import Startup_Logo
