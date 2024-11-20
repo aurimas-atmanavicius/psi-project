@@ -1,11 +1,12 @@
-Startup screen              (game logo)
-    Main menu
-        New game
-        Continue            (current level)
-        Settings
-            Music volume    (slider)
-            Effects volume  (slider)
-            Resolution      (dropdown menu)
-        Scoreboard
-        Exit
+LAIKINAI žaidimo vienintelė raiška yra 1280x720
+    Startup screen              (game logo)
+        Main menu
+            New game
+            Continue            (current level)
+            Settings
+                Music volume    (slider)
+                Effects volume  (slider)
+                Resolution      (dropdown menu)
+            Scoreboard
+            Exit
 
