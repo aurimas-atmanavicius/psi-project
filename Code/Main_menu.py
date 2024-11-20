@@ -12,8 +12,8 @@ pygame.display.set_caption("Sveiki komanda")
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 
-image = pygame.image.load("main menu/kvizik.png")
-image = pygame.transform.scale(image, (400, 400))
+image = pygame.image.load("../Graphics/Logo_main_screen.png")
+image = pygame.transform.scale(image, (800, 800))
 
 running = True
 while running:
