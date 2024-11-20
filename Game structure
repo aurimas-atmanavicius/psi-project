@@ -1,11 +1,11 @@
-Startup screen (game logo)
+Startup screen              (game logo)
     Main menu
         New game
-        Continue (current level)
+        Continue            (current level)
         Settings
-            Music volume
-            Effects volume
-            Resolution (dropdown menu)
+            Music volume    (slider)
+            Effects volume  (slider)
+            Resolution      (dropdown menu)
         Scoreboard
         Exit
 
