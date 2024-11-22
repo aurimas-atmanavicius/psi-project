@@ -2,31 +2,33 @@
     "easy": [
         {
             "question_1": "1213212",
-            "question_2": "1213212",
-            "question_3": "1213212",
-            "question_4": "1213212",
-            "answer": "question_2"
+            "answer_choice_1": "1213212",
+            "answer_choice_2": "1213212",
+            "answer_choice_3": "1213212",
+            "answer_choice_4": "1213212",
+            "answer": "answer_choice_2"
         },
         {
             "question_1": "1213212",
-            "question_2": "1213212",
-            "question_3": "1213212",
-            "question_4": "1213212",
-            "answer": "question_2"
+            "answer_choice_1": "1213212",
+            "answer_choice_2": "1213212",
+            "answer_choice_3": "1213212",
+            "answer_choice_4": "1213212",
+            "answer": "answer_choice_2"
         },
         {
             "question_1": "1213212",
-            "question_2": "1213212",
-            "question_3": "1213212",
-            "question_4": "1213212",
-            "answer": "question_2"
+            "answer_choice_1": "1213212",
+            "answer_choice_2": "1213212",
+            "answer_choice_3": "1213212",
+            "answer_choice_4": "1213212",
+            "answer": "answer_choice_2"
         },
         {
             "question_1": "1213212",
-            "question_2": "1213212",
-            "question_3": "1213212",
-            "question_4": "1213212",
-            "answer": "question_2"
+            "answer_choice_1": "1213212",
+            "answer_choice_2": "1213212",
+            "answer": "answer_choice_2"
         }
     ],
     "medium": [],
