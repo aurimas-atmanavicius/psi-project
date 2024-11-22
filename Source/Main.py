@@ -2,6 +2,7 @@ import pygame
 from sys import exit
 from Startup_Logo import startup_screen
 from Main_Menu import main_menu
+import json
 
 # Constants
 SCREEN_WIDTH = 1280
