@@ -10,6 +10,19 @@ SCREEN_HEIGHT = 720
 def main():
     # Initialize Pygame
     pygame.init()
+
+    # Initialize the mixer for sound
+    pygame.mixer.init()
+
+    # Delay for half a second (500 milliseconds)
+    pygame.time.delay(1000)
+
+    # Load and play the startup sound
+    pygame.mixer.music.load("../Audio/Startup.wav")  # Replace with your file path
+    pygame.mixer.music.set_volume(0.5)  # Set volume (0.0 to 1.0)
+    pygame.mixer.music.play()  # Play the sound
+
+    # Create screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption("Kvizik")
 
