@@ -1,12 +1,16 @@
 import pygame
 from sys import exit
+import os
 from Startup_Logo import startup_screen
 from Main_Menu import main_menu
 import json
 
+os.environ['SDL_VIDEO_CENTERED'] = '0'
+
 # Constants
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
+MUSIC_VOLUME = 0.5
 
 def main():
     # Initialize Pygame
@@ -20,7 +24,7 @@ def main():
 
     # Load and play the startup sound
     pygame.mixer.music.load("../Audio/Startup.wav")  # Replace with your file path
-    pygame.mixer.music.set_volume(0.5)  # Set volume (0.0 to 1.0)
+    pygame.mixer.music.set_volume(MUSIC_VOLUME)  # Set volume (0.0 to 1.0)
     pygame.mixer.music.play()  # Play the sound
 
     # Create screen
@@ -33,7 +37,7 @@ def main():
 
     # Load the background song
     pygame.mixer.music.load("../Audio/main_menu_loop.wav")  # Replace with your file path
-    pygame.mixer.music.set_volume(0.5)  # Set the music volume (0.0 to 1.0)
+    pygame.mixer.music.set_volume(MUSIC_VOLUME)  # Set the music volume (0.0 to 1.0)
     pygame.mixer.music.play(-1, fade_ms=3000)  # Loop the music with a 3-second fade-in
 
     # Transition to the main menu

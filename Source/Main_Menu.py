@@ -1,4 +1,5 @@
 import pygame
+import Settings
 
 def resize_with_aspect_ratio(image, max_width, max_height):
     original_width, original_height = image.get_size()
@@ -45,6 +46,9 @@ def main_menu(screen, width, height):
                     if button_rect.collidepoint(mouse_pos):
                         if text == "Exit":
                             running = False
+
+                        if text == "Settings":
+                            Settings.settings()
 
         # Draw the logo
         screen.blit(logo, ((width - logo.get_width()) // 2, 50))  # Move the logo higher
