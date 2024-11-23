@@ -165,12 +165,6 @@ def main(screen, width, height, MUSIC_VOLUME):
         # Draw the resolution drop-down menu
         draw_dropdown(screen, width, height, dropdown_font, menu_x, menu_y, menu_width, menu_height, resolutions, dropdown_open)
 
-        # # Draw back button
-        # pygame.draw.rect(screen, (150, 150, 150), back_button["rect"], border_radius=10)
-        # back_text_surface = pygame.font.Font(None, 40).render(back_button["text"], True, (0, 0, 0))
-        # back_text_rect = back_text_surface.get_rect(center=back_button["rect"].center)
-        # screen.blit(back_text_surface, back_text_rect)
-
         # Draw "Back" button
         back_button_rect = pygame.Rect(back_button_start_x, back_button_start_y, back_button_width, back_button_height)
         color = (200, 200, 200) if back_button_rect.collidepoint(mouse_pos) else (150, 150, 150)
