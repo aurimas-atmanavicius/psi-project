@@ -25,7 +25,7 @@ def fade_to_color(screen, target_color, duration=500):
         pygame.display.flip()
         clock.tick(60)  # Limit to 60 FPS
 
-def new_game_screen(screen, width, height, play_button_sound, back_to_main_menu_callback):
+def new_game_screen(screen, width, height):#, play_button_sound, back_to_main_menu_callback):
     """Displays the New Game screen with difficulty selection and background effects."""
     # Button data
     button_width = 300
@@ -59,14 +59,14 @@ def new_game_screen(screen, width, height, play_button_sound, back_to_main_menu_
                 for text, y, color in difficulties:
                     button_rect = pygame.Rect((width - button_width) // 2, y, button_width, button_height)
                     if button_rect.collidepoint(mouse_pos):
-                        play_button_sound()  # Play button sound
+                        #play_button_sound()  # Play button sound
                         fade_to_color(screen, color)  # Change background
                         current_bg_color = color  # Update the current background color
 
                 # Back button logic
                 if back_button["rect"].collidepoint(mouse_pos):
-                    play_button_sound()  # Play button sound
-                    back_to_main_menu_callback()  # Call the main menu callback
+                    # play_button_sound()  # Play button sound
+                    # back_to_main_menu_callback()  # Call the main menu callback
                     running = False
 
         # Draw difficulty buttons

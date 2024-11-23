@@ -50,7 +50,7 @@ def main_menu(screen, width, height):
                             running = False
 
                         if text == "New Game":
-                            Level_selection.main()
+                            Level_selection.new_game_screen(screen, width, height)
 #                           Game.play_10_random_questions(screen, width, height)"
 
                         if text == "Settings":
