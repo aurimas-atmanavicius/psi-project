@@ -4,11 +4,11 @@ import random
 
 import pygame
 
-JSON_QUESTION_FILE = "../data.json"
+JSON_QUESTION_FILE = "../Levels/Test_level.json"
 
-def read_json_questions_file(filename = "data.json"):
+def read_json_questions_file(filename = "Test_level.json"):
     """
-    Reads: default 'data.json' or provided json file
+    Reads: default 'Test_level.json' or provided json file
     Returns its data
     """
     with open(filename, "r", encoding="utf8") as file:

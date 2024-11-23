@@ -68,3 +68,5 @@ def main_menu(screen, width, height):
             screen.blit(text_surface, text_rect)
 
         pygame.display.flip()
+
+
