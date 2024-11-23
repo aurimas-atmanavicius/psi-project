@@ -1,6 +1,5 @@
 import pygame
 import Settings
-import Game
 import Level_selection
 
 def resize_with_aspect_ratio(image, max_width, max_height):
@@ -51,7 +50,6 @@ def main_menu(screen, width, height, MUSIC_VOLUME):
 
                         if text == "New Game":
                             Level_selection.new_game_screen(screen, width, height)
-#                           Game.play_10_random_questions(screen, width, height)"
 
                         if text == "Settings":
                             width, height, MUSIC_VOLUME = Settings.main(screen, width, height, MUSIC_VOLUME)
