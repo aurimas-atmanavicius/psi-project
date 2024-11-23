@@ -51,9 +51,6 @@ def play_10_random_questions(screen, width, height):
                 for text, y in answer_buttons.copy():
                     button_rect = pygame.Rect((width - button_width) // 2, y, button_width, button_height)
                     if button_rect.collidepoint(mouse_pos):
-                        print(list_questions_index)
-                        print("index:", index)
-                        print(data[list_questions_index[index]]["answers"][data[list_questions_index[index]]["correct_answer"]])
                         if text == data[list_questions_index[index]]["answers"][data[list_questions_index[index]]["correct_answer"]]:
                             index += 1
                             score += 1

@@ -10,7 +10,7 @@ os.environ['SDL_VIDEO_CENTERED'] = '0'
 # Constants
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
-MUSIC_VOLUME = 0.2
+MUSIC_VOLUME = 0
 
 def main():
     # Initialize Pygame
@@ -41,7 +41,7 @@ def main():
     pygame.mixer.music.play(-1, fade_ms=3000)  # Loop the music with a 3-second fade-in
 
     # Transition to the main menu
-    main_menu(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
+    main_menu(screen, SCREEN_WIDTH, SCREEN_HEIGHT, MUSIC_VOLUME)
 
     # Quit the program
     pygame.quit()
