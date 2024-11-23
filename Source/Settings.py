@@ -156,4 +156,4 @@ def main(screen, width, height, MUSIC_VOLUME):
 
         pygame.display.flip()
 
-    return screen.get_size()[0], screen.get_size()[1]
+    return screen.get_size()[0], screen.get_size()[1], MUSIC_VOLUME
