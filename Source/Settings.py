@@ -29,14 +29,14 @@ def draw_checkbox(screen, width, height, checkbox_x, checkbox_y, checkbox_size, 
 def draw_slider(screen, width, height, slider_x, slider_y, slider_width, slider_height, slider_knob_pos):
     """ Draws the volume slider. """
     pygame.draw.rect(screen, GRAY, (slider_x, slider_y, slider_width, slider_height))  # Draw slider track
-    pygame.draw.circle(screen, HIGHLIGHT_COLOR, slider_knob_pos, 10)  # Draw the knob
+    pygame.draw.circle(screen, BLACK, slider_knob_pos, 10)  # Draw the knob
 
 def main(screen, width, height, MUSIC_VOLUME):
     """ Settings window """
     font = pygame.font.SysFont(None, 40)
 
     # Resolution Drop down list
-    resolutions = [(800, 600), (1024, 768), (1280, 720), (1920, 1080)]
+    resolutions = [(1024, 768), (1280, 720), (1920, 1080)]
 
     # Drop-down menu
     dropdown_font = pygame.font.SysFont(None, 40)
@@ -45,32 +45,34 @@ def main(screen, width, height, MUSIC_VOLUME):
         list_resolution_strings.append(f"Resolution: {res[0]}x{res[1]}")
     menu_longest_string = max(list_resolution_strings, key=len)
     #menu_text = f"Resolution: {current_resolution[0]}x{current_resolution[1]}"
-    menu_x = 50
-    menu_y = 250
     text_surface = dropdown_font.render(menu_longest_string, True, BLACK)
     menu_width, _ = text_surface.get_size()
     menu_width += 5
-    menu_height = 30
+    menu_height = 60
+    menu_x = (width - menu_width) // 2
+    menu_y = 250
     dropdown_open = False
 
     # Checkbox dimensions and initial state for fullscreen toggle
-    checkbox_x, checkbox_y = 50, 120
     checkbox_size = 30
+    checkbox_x = (width - menu_width) // 2
+    checkbox_y = 120
     checkbox_checked = False  # Initially unchecked
 
     # Volume slider dimensions
-    slider_x, slider_y = 50, 200
     slider_width = 300
     slider_height = 10
-    slider_knob_pos = [slider_x + int(slider_width * 0.5), slider_y + slider_height // 2]
+    slider_x = (width - slider_width) // 2
+    slider_y = 200
+    slider_knob_pos = [slider_x + int(slider_width * MUSIC_VOLUME), slider_y + slider_height // 2]
     slider_value = MUSIC_VOLUME  # Initial volume (50%)
 
     # Back button
     back_button_height = 60
-    back_button_width = 120
-    back_button_start_y = 0
-    back_button_start_x = 0
-    back_button_text = ("Back")
+    back_button_width = 300
+    back_button_start_y = height - 150
+    back_button_start_x = (width - back_button_width) // 2
+    back_button_text = "Back to Main Menu"
 
     running = True
     while running:
@@ -100,6 +102,12 @@ def main(screen, width, height, MUSIC_VOLUME):
                             current_resolution = res
                             selected_resolution_text = font.render(f"Resolution: {current_resolution[0]}x{current_resolution[1]}", True, BLACK)
                             screen = pygame.display.set_mode(current_resolution)  # Update the screen size
+                            width, height = screen.get_size()[0], screen.get_size()[1]
+                            menu_x = (width - menu_width) // 2
+                            checkbox_x = (width - menu_width) // 2
+                            slider_x = (width - slider_width) // 2
+                            back_button_start_x = (width - back_button_width) // 2
+                            back_button_start_y = height - 150
                             dropdown_open = False  # Close the drop-down menu
 
                 # Handle click on fullscreen checkbox
@@ -108,9 +116,21 @@ def main(screen, width, height, MUSIC_VOLUME):
                     if checkbox_checked:
                         screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)  # Switch to fullscreen
                         selected_resolution_text = font.render(f"Resolution: {screen.get_size()[0]}x{screen.get_size()[1]}", True, BLACK)
+                        width, height = screen.get_size()[0], screen.get_size()[1]
+                        menu_x = (width - menu_width) // 2
+                        checkbox_x = (width - menu_width) // 2
+                        slider_x = (width - slider_width) // 2
+                        back_button_start_x = (width - back_button_width) // 2
+                        back_button_start_y = height - 150
                     else:
                         screen = pygame.display.set_mode(current_resolution)  # Switch back to windowed mode
                         selected_resolution_text = font.render(f"Resolution: {screen.get_size()[0]}x{screen.get_size()[1]}", True, BLACK)
+                        width, height = screen.get_size()[0], screen.get_size()[1]
+                        menu_x = (width - menu_width) // 2
+                        checkbox_x = (width - menu_width) // 2
+                        slider_x = (width - slider_width) // 2
+                        back_button_start_x = (width - back_button_width) // 2
+                        back_button_start_y = height - 150
 
                 # Handle click on the volume slider (if within the slider's area)
                 if pygame.Rect(slider_x, slider_y, slider_width, slider_height).collidepoint(mouse_pos):
@@ -132,6 +152,25 @@ def main(screen, width, height, MUSIC_VOLUME):
         # DRAW                                              #
         #####################################################
 
+        # Draw the volume slider
+        draw_slider(screen, width, height, slider_x, slider_y, slider_width, slider_height, slider_knob_pos)
+        volume_text = font.render(f"Volume: {int(slider_value * 100)}%", True, (0, 0, 0))
+        screen.blit(volume_text, (slider_x + slider_width + 10, slider_y))
+
+        # Draw the fullscreen checkbox
+        checkbox_text = font.render("Fullscreen", True, (0, 0, 0))
+        screen.blit(checkbox_text, (checkbox_x + checkbox_size + 10, checkbox_y + 5))
+        draw_checkbox(screen, width, height, checkbox_x, checkbox_y, checkbox_size, checkbox_checked)
+
+        # Draw the resolution drop-down menu
+        draw_dropdown(screen, width, height, dropdown_font, menu_x, menu_y, menu_width, menu_height, resolutions, dropdown_open)
+
+        # # Draw back button
+        # pygame.draw.rect(screen, (150, 150, 150), back_button["rect"], border_radius=10)
+        # back_text_surface = pygame.font.Font(None, 40).render(back_button["text"], True, (0, 0, 0))
+        # back_text_rect = back_text_surface.get_rect(center=back_button["rect"].center)
+        # screen.blit(back_text_surface, back_text_rect)
+
         # Draw "Back" button
         back_button_rect = pygame.Rect(back_button_start_x, back_button_start_y, back_button_width, back_button_height)
         color = (200, 200, 200) if back_button_rect.collidepoint(mouse_pos) else (150, 150, 150)
@@ -140,19 +179,6 @@ def main(screen, width, height, MUSIC_VOLUME):
         text_surface = font.render(back_button_text, True, (0, 0, 0))
         text_rect = text_surface.get_rect(center=back_button_rect.center)
         screen.blit(text_surface, text_rect)
-
-        # Draw the volume slider
-        draw_slider(screen, width, height, slider_x, slider_y, slider_width, slider_height, slider_knob_pos)
-        volume_text = font.render(f"Volume: {int(slider_value * 100)}%", True, (0, 0, 0))
-        screen.blit(volume_text, (slider_x + slider_width + 10, slider_y))
-
-        # Draw the resolution drop-down menu
-        draw_dropdown(screen, width, height, dropdown_font, menu_x, menu_y, menu_width, menu_height, resolutions, dropdown_open)
-
-        # Draw the fullscreen checkbox
-        checkbox_text = font.render("Fullscreen", True, (0, 0, 0))
-        screen.blit(checkbox_text, (checkbox_x + checkbox_size + 10, checkbox_y + 5))
-        draw_checkbox(screen, width, height, checkbox_x, checkbox_y, checkbox_size, checkbox_checked)
 
         pygame.display.flip()
 
