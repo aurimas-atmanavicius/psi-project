@@ -31,7 +31,7 @@ def draw_slider(screen, width, height, slider_x, slider_y, slider_width, slider_
     pygame.draw.rect(screen, GRAY, (slider_x, slider_y, slider_width, slider_height))  # Draw slider track
     pygame.draw.circle(screen, HIGHLIGHT_COLOR, slider_knob_pos, 10)  # Draw the knob
 
-def main(screen, width, height):
+def main(screen, width, height, MUSIC_VOLUME):
     """ Settings window """
     font = pygame.font.SysFont(None, 40)
 
@@ -46,7 +46,7 @@ def main(screen, width, height):
     menu_longest_string = max(list_resolution_strings, key=len)
     #menu_text = f"Resolution: {current_resolution[0]}x{current_resolution[1]}"
     menu_x = 50
-    menu_y = 50
+    menu_y = 250
     text_surface = dropdown_font.render(menu_longest_string, True, BLACK)
     menu_width, _ = text_surface.get_size()
     menu_width += 5
@@ -63,7 +63,7 @@ def main(screen, width, height):
     slider_width = 300
     slider_height = 10
     slider_knob_pos = [slider_x + int(slider_width * 0.5), slider_y + slider_height // 2]
-    slider_value = 0.5  # Initial volume (50%)
+    slider_value = MUSIC_VOLUME  # Initial volume (50%)
 
     # Back button
     back_button_height = 60

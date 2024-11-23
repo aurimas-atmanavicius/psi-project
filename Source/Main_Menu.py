@@ -10,7 +10,7 @@ def resize_with_aspect_ratio(image, max_width, max_height):
     new_height = int(original_height * scale)
     return pygame.transform.scale(image, (new_width, new_height))
 
-def main_menu(screen, width, height):
+def main_menu(screen, width, height, MUSIC_VOLUME):
     # Initialize the mixer for music
     pygame.mixer.init()
 
@@ -54,7 +54,7 @@ def main_menu(screen, width, height):
 #                           Game.play_10_random_questions(screen, width, height)"
 
                         if text == "Settings":
-                            width, height = Settings.main(screen, width, height)
+                            width, height, MUSIC_VOLUME = Settings.main(screen, width, height, MUSIC_VOLUME)
 
         # Draw the logo
         screen.blit(logo, ((width - logo.get_width()) // 2, 50))  # Move the logo higher
