@@ -49,6 +49,8 @@ def play_10_random_questions(screen, width, height):
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 for text, y in answer_buttons.copy():
+                    print(answer_buttons)
+                    print(y)
                     button_rect = pygame.Rect((width - button_width) // 2, y, button_width, button_height)
                     if button_rect.collidepoint(mouse_pos):
                         print(list_questions_index)

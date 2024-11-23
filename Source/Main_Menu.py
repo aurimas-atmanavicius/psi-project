@@ -54,7 +54,7 @@ def main_menu(screen, width, height):
 #                           Game.play_10_random_questions(screen, width, height)"
 
                         if text == "Settings":
-                            Settings.settings()
+                            width, height = Settings.main(screen, width, height)
 
         # Draw the logo
         screen.blit(logo, ((width - logo.get_width()) // 2, 50))  # Move the logo higher

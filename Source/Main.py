@@ -10,7 +10,7 @@ os.environ['SDL_VIDEO_CENTERED'] = '0'
 # Constants
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
-MUSIC_VOLUME = 0.2
+MUSIC_VOLUME = 0
 
 def main():
     # Initialize Pygame
