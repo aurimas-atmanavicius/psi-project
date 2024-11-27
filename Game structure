@@ -13,3 +13,17 @@ LAIKINAI žaidimo vienintelė raiška yra 1280x720
             Scoreboard
             Exit
 
+
+
+
+
+klausimu kiekis >=  15
+klausimu kiekis turi dalintis iš 3
+
+žaidimo  tašku skaičiavimo formulė:
+Baziniai taškai x (1+ likęs laikas klausimui/maksimalaus leistino laiko klausimui)
+
+
+Geografija
+Mokslai
+Gyvunai ir augalai
